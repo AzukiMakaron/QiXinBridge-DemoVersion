@@ -10,8 +10,8 @@ import java.util.List;
 /**
  * 用户实体类
  *
- * @author wangxiaoyang
- * @since 2020/11/01
+ * @author doufen
+ * @since 2023/9/9
  */
 public class User implements UserDetails {
 

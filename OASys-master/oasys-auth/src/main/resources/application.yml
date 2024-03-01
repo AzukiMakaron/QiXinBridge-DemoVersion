@@ -18,9 +18,9 @@ security:
       authorized-grant-types: password
       access-token-validity-seconds: 864000
     authorization:
-      check-token-access: permitAll()
-      token-key-access: permitAll()
+      check-token-access: permitAll() #允许任何人访问令牌检查端点
+      token-key-access: permitAll() #允许任何人访问令牌密钥端点
       jwt:
-        key-store: classpath:jwt.jks
-        key-store-password: linter
-        key-alias: jwt
+        key-store: classpath:jwt.jks #定义JWT密钥的存储位置
+        key-store-password: linter #访问jwt.jks文件密码
+        key-alias: jwt #别名

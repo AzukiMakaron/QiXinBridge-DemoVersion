@@ -36,7 +36,7 @@ public interface UserClient {
      * @return 角色列表
      */
     @GetMapping("users/{username}/roles")
-    Result<List<Role>> listRoleOfUser(@PathVariable String username);
+    Result<List<Role>> listRoleOfUser(@PathVariable("username") String username);
 
     /**
      * 查询用户的权限
@@ -46,6 +46,6 @@ public interface UserClient {
      * @return 权限集合
      */
     @GetMapping("users/{username}/permissions")
-    Result<List<Permission>> listPermissionOfUser(@PathVariable String username, @RequestParam(defaultValue = "false") boolean treeMode);
+    Result<List<Permission>> listPermissionOfUser(@PathVariable("username") String username, @RequestParam(defaultValue = "false") boolean treeMode);
 
 }

@@ -10,7 +10,7 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 import java.security.KeyPair;
 
 /**
- * 授权服务器配置类
+ * Oauth2.0授权服务器配置类
  *
  * @author doufen
  * @since 2023/9/9
@@ -19,12 +19,12 @@ import java.security.KeyPair;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig {
 
-    @Value("#{'${security.oauth2.authorization.jwt.key-store}'.substring(10)}")
-    private String keyLocation;
+    @Value("#{'${security.oauth2.authorization.jwt.key-store}'.substring(10)}") //从classpath：往后截取字符串
+    private String keyLocation; //JWT密钥的存储位置
     @Value("${security.oauth2.authorization.jwt.key-store-password}")
-    private String keyPassword;
+    private String keyPassword; //JWT秘钥存储密码
     @Value("${security.oauth2.authorization.jwt.key-alias}")
-    private String keyAlias;
+    private String keyAlias; //JWT秘钥别名
 
     @Bean
     public KeyPair keyPairFactory() {

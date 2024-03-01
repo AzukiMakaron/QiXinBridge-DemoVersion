@@ -5,8 +5,8 @@ import lombok.Data;
 /**
  * 角色实体类
  *
- * @author wangxiaoyang
- * @since 2020/12/20
+ * @author doufen
+ * @since 2023/9/9
  */
 @Data
 public class Role {

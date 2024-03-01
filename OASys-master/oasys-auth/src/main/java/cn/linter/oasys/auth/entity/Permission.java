@@ -7,8 +7,8 @@ import java.util.List;
 /**
  * 权限实体类
  *
- * @author wangxiaoyang
- * @since 2021/01/14
+ * @author doufen
+ * @since 2023/9/14
  */
 @Data
 public class Permission {
