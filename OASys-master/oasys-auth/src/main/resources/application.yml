@@ -1,0 +1,26 @@
+server:
+  port: 8846
+spring:
+  application:
+    name: auth-service
+  jackson:
+    default-property-inclusion: non_null
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 60.204.212.12:8848
+security:
+  oauth2:
+    client:
+      scope: all
+      client-id: linter
+      client-secret: linter
+      authorized-grant-types: password
+      access-token-validity-seconds: 864000
+    authorization:
+      check-token-access: permitAll()
+      token-key-access: permitAll()
+      jwt:
+        key-store: classpath:jwt.jks
+        key-store-password: linter
+        key-alias: jwt

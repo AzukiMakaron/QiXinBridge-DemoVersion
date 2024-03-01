@@ -1,0 +1,26 @@
+server:
+  port: 8440
+spring:
+  application:
+    name: file-service
+  servlet:
+    multipart:
+      max-file-size: 50MB
+  datasource:
+    url: jdbc:mysql://localhost/doufenoasys?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: helloworld
+  jackson:
+    default-property-inclusion: non_null
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 60.204.212.12:8848
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+minio:
+  endpoint: http://8.136.117.17:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+  file-bucket-name: files
+  profile-picture-bucket-name: profile-pictures

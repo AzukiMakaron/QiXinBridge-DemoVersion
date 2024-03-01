@@ -1,0 +1,13 @@
+server:
+  port: 8460
+spring:
+  application:
+    name: search-service
+  elasticsearch:
+    uris: 60.204.212.12:9200
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 60.204.212.12:8848
+  jackson:
+    default-property-inclusion: non_null

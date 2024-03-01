@@ -1,0 +1,20 @@
+server:
+  port: 8450
+spring:
+  application:
+    name: chat-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  data:
+    mongodb:
+      host: 60.204.212.12
+      port: 27017
+      database: chat_record
+  jackson:
+    default-property-inclusion: non_null
+pulsar:
+  host: localhost:6650
+  topic: chat
+  subscription: chat

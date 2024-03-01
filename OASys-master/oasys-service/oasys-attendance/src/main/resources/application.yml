@@ -1,0 +1,17 @@
+server:
+  port: 8430
+spring:
+  application:
+    name: attendance-service
+  datasource:
+    url: jdbc:mysql://localhost/doufenoasys?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: helloworld
+  jackson:
+    default-property-inclusion: non_null
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 60.204.212.12:8848
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
