@@ -13,8 +13,8 @@ security:
   oauth2:
     client:
       scope: all
-      client-id: linter
-      client-secret: linter
+      client-id: doufen
+      client-secret: doufen
       authorized-grant-types: password
       access-token-validity-seconds: 864000
     authorization:

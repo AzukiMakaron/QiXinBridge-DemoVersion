@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.linter.oasys.user.dao.PermissionDao">
+<mapper namespace="doufen.work.oasys.user.dao.PermissionDao">
 
-    <resultMap type="cn.linter.oasys.user.entity.Permission" id="PermissionMap">
+    <resultMap type="doufen.work.oasys.user.entity.Permission" id="PermissionMap">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="type" column="type"/>
@@ -15,13 +15,13 @@
         <result property="componentPath" column="component_path"/>
     </resultMap>
 
-    <resultMap id="PermissionRoleMap" type="cn.linter.oasys.user.dto.PermissionRoleDTO">
+    <resultMap id="PermissionRoleMap" type="doufen.work.oasys.user.dto.PermissionRoleDTO">
         <id column="id"/>
-        <association property="permission" javaType="cn.linter.oasys.user.entity.Permission">
+        <association property="permission" javaType="doufen.work.oasys.user.entity.Permission">
             <result property="requestMethod" column="request_method"/>
             <result property="resourcePath" column="resource_path"/>
         </association>
-        <collection property="roles" ofType="cn.linter.oasys.user.entity.Role">
+        <collection property="roles" ofType="doufen.work.oasys.user.entity.Role">
             <result property="name" column="role_name"/>
         </collection>
     </resultMap>
@@ -165,16 +165,16 @@
     <!--插入单个权限-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into permission
-        <if test="type == @cn.linter.oasys.user.entity.Permission$Type@category">
+        <if test="type == @doufen.work.oasys.user.entity.Permission$Type@category">
             (name, type, icon, parent_id, create_time, update_time)
             values (#{name}, #{type}, #{icon}, #{parentId}, #{createTime}, #{updateTime})
         </if>
-        <if test="type == @cn.linter.oasys.user.entity.Permission$Type@menu">
+        <if test="type == @doufen.work.oasys.user.entity.Permission$Type@menu">
             (name, type, icon, parent_id, router_name, router_path, component_path, create_time, update_time)
             values (#{name}, #{type}, #{icon}, #{parentId}, #{routerName}, #{routerPath}, #{componentPath},
             #{createTime}, #{updateTime})
         </if>
-        <if test="type == @cn.linter.oasys.user.entity.Permission$Type@resource">
+        <if test="type == @doufen.work.oasys.user.entity.Permission$Type@resource">
             (name, type, parent_id, resource_path, request_method, create_time, update_time)
             values (#{name}, #{type}, #{parentId}, #{resourcePath}, #{requestMethod}, #{createTime}, #{updateTime})
         </if>
@@ -193,12 +193,12 @@
         <if test="parentId != null">
             parent_id = #{parentId},
         </if>
-        <if test="type == @cn.linter.oasys.user.entity.Permission$Type@category">
+        <if test="type == @doufen.work.oasys.user.entity.Permission$Type@category">
             <if test="icon != null and icon != ''">
                 icon = #{icon},
             </if>
         </if>
-        <if test="type == @cn.linter.oasys.user.entity.Permission$Type@menu">
+        <if test="type == @doufen.work.oasys.user.entity.Permission$Type@menu">
             <if test="icon != null and icon != ''">
                 icon = #{icon},
             </if>
@@ -212,7 +212,7 @@
                 component_path = #{componentPath},
             </if>
         </if>
-        <if test="type == @cn.linter.oasys.user.entity.Permission$Type@resource">
+        <if test="type == @doufen.work.oasys.user.entity.Permission$Type@resource">
             <if test="resourcePath != null and resourcePath != ''">
                 resource_path = #{resourcePath},
             </if>

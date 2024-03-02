@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.linter.oasys.user.dao.RoleDao">
+<mapper namespace="doufen.work.oasys.user.dao.RoleDao">
 
-    <resultMap type="cn.linter.oasys.user.entity.Role" id="RoleMap">
+    <resultMap type="doufen.work.oasys.user.entity.Role" id="RoleMap">
         <result property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="createTime" column="create_time"/>
@@ -37,7 +37,7 @@
     </select>
 
     <!--通过用户名查询所有角色-->
-    <select id="listByUsername" resultType="cn.linter.oasys.user.entity.Role">
+    <select id="listByUsername" resultType="doufen.work.oasys.user.entity.Role">
         select r.id, r.name
         from user u,
              role r,

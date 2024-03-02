@@ -1,0 +1,35 @@
+package doufen.work.oasys.chat.config;
+
+import doufen.work.oasys.chat.handler.ChatWebSocketHandler;
+import doufen.work.oasys.chat.interceptor.AuthorizationInterceptor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+
+/**
+ * WebSocket配置
+ *
+ * @author doufen
+ * @since 2023/12/1
+ */
+
+@Configuration
+@EnableWebSocket
+public class WebSocketConfig implements WebSocketConfigurer {
+
+    private final ChatWebSocketHandler chatWebSocketHandler;
+    private final AuthorizationInterceptor authorizationInterceptor;
+
+    public WebSocketConfig(ChatWebSocketHandler chatWebSocketHandler, AuthorizationInterceptor authorizationInterceptor) {
+        this.chatWebSocketHandler = chatWebSocketHandler;
+        this.authorizationInterceptor = authorizationInterceptor;
+    }
+
+    @Override
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(chatWebSocketHandler, "/chat")
+                .addInterceptors(authorizationInterceptor).setAllowedOrigins("*");
+    }
+
+}

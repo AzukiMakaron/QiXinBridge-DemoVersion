@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.linter.oasys.user.dao.UserDao">
+<mapper namespace="doufen.work.oasys.user.dao.UserDao">
 
-    <resultMap type="cn.linter.oasys.user.entity.User" id="UserMap">
+    <resultMap type="doufen.work.oasys.user.entity.User" id="UserMap">
         <result property="id" column="id"/>
         <result property="username" column="username"/>
         <result property="password" column="password"/>
@@ -13,11 +13,11 @@
         <result property="profilePicture" column="profile_picture"/>
         <result property="createTime" column="create_time"/>
         <result property="updateTime" column="update_time"/>
-        <association property="dept" javaType="cn.linter.oasys.user.entity.Dept">
+        <association property="dept" javaType="doufen.work.oasys.user.entity.Dept">
             <id property="id" column="dept_id"/>
             <result property="name" column="dept_name"/>
         </association>
-        <collection property="roles" ofType="cn.linter.oasys.user.entity.Role">
+        <collection property="roles" ofType="doufen.work.oasys.user.entity.Role">
             <id property="id" column="role_id"/>
             <result property="name" column="role_name"/>
         </collection>

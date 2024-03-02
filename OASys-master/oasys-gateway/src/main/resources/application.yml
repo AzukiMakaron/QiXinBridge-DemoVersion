@@ -28,7 +28,8 @@ spring:
           '[/**]':
             allowedOrigins: http://localhost:3000
             allowedHeaders: Content-Type, Authorization
-            allowedMethods: GET, POST, PUT, DELETE, OPTIONS
+#            allowedMethods: GET, POST, PUT, DELETE, OPTIONS
+            allowedMethods: GET,PUT,POST,DELETE,OPTIONS
       routes:
         - id: auth-service
           uri: lb://auth-service
