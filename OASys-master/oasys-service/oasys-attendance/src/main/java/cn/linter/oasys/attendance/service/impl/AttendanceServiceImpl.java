@@ -3,8 +3,8 @@ package cn.linter.oasys.attendance.service.impl;
 import cn.linter.oasys.attendance.dao.AttendanceDao;
 import cn.linter.oasys.attendance.entity.Attendance;
 import cn.linter.oasys.attendance.service.AttendanceService;
-import cn.linter.oasys.common.entity.ResultStatus;
-import cn.linter.oasys.common.exception.BusinessException;
+import doufen.work.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.exception.BusinessException;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;

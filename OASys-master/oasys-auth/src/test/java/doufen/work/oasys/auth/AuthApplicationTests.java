@@ -1,16 +1,16 @@
-package cn.linter.oasys.file;
+package doufen.work.oasys.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * 文件服务测试类
+ * 认证服务测试类
  *
  * @author doufen
- * @since 2023/12/26
+ * @since 2023/10/8
  */
 @SpringBootTest
-public class FileApplicationTests {
+public class AuthApplicationTests {
 
     @Test
     void contextLoads() {

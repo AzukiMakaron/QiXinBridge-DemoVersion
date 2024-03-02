@@ -1,7 +1,7 @@
 package cn.linter.oasys.user.controller;
 
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import cn.linter.oasys.user.dto.PermissionRoleDTO;
 import cn.linter.oasys.user.entity.Permission;
 import cn.linter.oasys.user.service.PermissionService;

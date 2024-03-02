@@ -1,7 +1,7 @@
 package cn.linter.oasys.file.service.impl;
 
-import cn.linter.oasys.common.entity.ResultStatus;
-import cn.linter.oasys.common.exception.BusinessException;
+import doufen.work.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.exception.BusinessException;
 import cn.linter.oasys.file.client.SearchClient;
 import cn.linter.oasys.file.dao.FileDao;
 import cn.linter.oasys.file.entity.File;

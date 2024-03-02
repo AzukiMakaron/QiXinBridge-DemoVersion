@@ -2,9 +2,9 @@ package cn.linter.oasys.announcement.controller;
 
 import cn.linter.oasys.announcement.entity.Announcement;
 import cn.linter.oasys.announcement.service.AnnouncementService;
-import cn.linter.oasys.common.entity.Page;
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Page;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import com.github.pagehelper.PageInfo;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;

@@ -2,9 +2,9 @@ package cn.linter.oasys.chat.controller;
 
 import cn.linter.oasys.chat.entity.Message;
 import cn.linter.oasys.chat.service.MessageService;
-import cn.linter.oasys.common.entity.Page;
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Page;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

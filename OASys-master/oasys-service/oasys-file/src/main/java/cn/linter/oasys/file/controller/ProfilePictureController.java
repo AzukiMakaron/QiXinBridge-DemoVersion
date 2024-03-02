@@ -1,8 +1,9 @@
 package cn.linter.oasys.file.controller;
 
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import cn.linter.oasys.file.service.ProfilePictureService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,12 +19,12 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("profile-pictures")
 public class ProfilePictureController {
+    @Autowired
+    ProfilePictureService profilePictureService;
 
-    private final ProfilePictureService profilePictureService;
-
-    public ProfilePictureController(ProfilePictureService profilePictureService) {
-        this.profilePictureService = profilePictureService;
-    }
+//    public ProfilePictureController(ProfilePictureService profilePictureService) {
+//        this.profilePictureService = profilePictureService;
+//    }
 
     @PostMapping
     public Result<String> uploadFile(@RequestParam MultipartFile multipartFile) throws Exception {

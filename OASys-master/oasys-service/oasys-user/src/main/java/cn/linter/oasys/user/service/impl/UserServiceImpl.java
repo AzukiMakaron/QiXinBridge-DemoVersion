@@ -1,7 +1,7 @@
 package cn.linter.oasys.user.service.impl;
 
-import cn.linter.oasys.common.entity.ResultStatus;
-import cn.linter.oasys.common.exception.BusinessException;
+import doufen.work.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.exception.BusinessException;
 import cn.linter.oasys.user.dao.UserDao;
 import cn.linter.oasys.user.entity.Permission;
 import cn.linter.oasys.user.entity.Role;

@@ -1,7 +1,7 @@
 package cn.linter.oasys.chat.client;
 
 import cn.linter.oasys.chat.entity.User;
-import cn.linter.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

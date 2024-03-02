@@ -2,8 +2,8 @@ package cn.linter.oasys.attendance.controller;
 
 import cn.linter.oasys.attendance.entity.Attendance;
 import cn.linter.oasys.attendance.service.AttendanceService;
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

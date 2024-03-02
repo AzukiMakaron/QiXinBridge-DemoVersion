@@ -1,8 +1,8 @@
 package cn.linter.oasys.search.controller;
 
-import cn.linter.oasys.common.entity.Page;
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Page;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import cn.linter.oasys.search.entity.File;
 import cn.linter.oasys.search.service.FileSearchService;
 import org.springframework.web.bind.annotation.*;

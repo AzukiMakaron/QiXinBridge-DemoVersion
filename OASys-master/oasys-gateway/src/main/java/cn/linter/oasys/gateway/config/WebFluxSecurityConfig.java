@@ -1,6 +1,6 @@
 package cn.linter.oasys.gateway.config;
 
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.ResultStatus;
 import cn.linter.oasys.gateway.manager.AuthorizationManager;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

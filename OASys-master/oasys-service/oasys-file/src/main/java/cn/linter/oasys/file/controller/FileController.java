@@ -1,12 +1,13 @@
 package cn.linter.oasys.file.controller;
 
-import cn.linter.oasys.common.entity.Page;
-import cn.linter.oasys.common.entity.Result;
-import cn.linter.oasys.common.entity.ResultStatus;
+import doufen.work.oasys.common.entity.Page;
+import doufen.work.oasys.common.entity.Result;
+import doufen.work.oasys.common.entity.ResultStatus;
 import cn.linter.oasys.file.entity.File;
 import cn.linter.oasys.file.service.FileService;
 import com.github.pagehelper.PageInfo;
 import io.minio.errors.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,12 +26,12 @@ import java.security.NoSuchAlgorithmException;
 @RestController
 @RequestMapping("files")
 public class FileController {
+    @Autowired
+    private FileService fileService;
 
-    private final FileService fileService;
-
-    public FileController(FileService fileService) {
-        this.fileService = fileService;
-    }
+//    public FileController(FileService fileService) {
+//        this.fileService = fileService;
+//    }
 
     @GetMapping
     public Result<Page<File>> listFile(@RequestParam(defaultValue = "1") int pageNumber, @RequestParam(defaultValue = "10") int pageSize, File file) {
@@ -38,6 +39,21 @@ public class FileController {
         return Result.of(ResultStatus.SUCCESS, Page.of(pageInfo.getList(), pageInfo.getTotal()));
     }
 
+    /**
+     *
+     * @param multipartFile
+     * @param file @@Validated({File.CreateFile.class, File.CreateFolder.class})设置验证组，验证规则为，不可创建重复的文件，可以创建重复的文件夹
+     * @return
+     * @throws IOException
+     * @throws ServerException
+     * @throws InsufficientDataException
+     * @throws NoSuchAlgorithmException
+     * @throws InternalException
+     * @throws InvalidResponseException
+     * @throws XmlParserException
+     * @throws InvalidKeyException
+     * @throws ErrorResponseException
+     */
     @PostMapping
     public Result<File> createFile(@RequestParam(required = false) MultipartFile multipartFile, @Validated({File.CreateFile.class, File.CreateFolder.class}) File file)
             throws IOException, ServerException, InsufficientDataException, NoSuchAlgorithmException, InternalException,
@@ -53,7 +69,6 @@ public class FileController {
 
     @PutMapping
     public Result<File> updateFile(@RequestBody @Validated({File.Update.class}) File file) {
-        //todo 验证是否为自己的文件
         File updatedFile = fileService.update(file);
         return Result.of(ResultStatus.SUCCESS, updatedFile);
     }
