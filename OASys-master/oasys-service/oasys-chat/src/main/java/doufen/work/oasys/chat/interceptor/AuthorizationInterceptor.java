@@ -18,7 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 授权拦截器
+ * 认证拦截器
  *
  * @author doufen
  * @since 2023/12/1

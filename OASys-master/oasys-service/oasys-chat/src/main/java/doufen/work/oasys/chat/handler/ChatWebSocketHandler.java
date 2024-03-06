@@ -32,8 +32,8 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) {
         SessionContainer.add(session);
         Map<String, Object> attributes = session.getAttributes();
-        String content = attributes.get("fullName") + "进入了聊天室";
-        chatMessagePublisher.publish(attributes, Message.Type.SYSTEM, content);
+        String message = attributes.get("fullName") + "进入了聊天室";
+        chatMessagePublisher.publish(attributes, Message.Type.SYSTEM, message);
     }
 
     @Override
@@ -45,8 +45,8 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) {
         SessionContainer.remove(session);
         Map<String, Object> attributes = session.getAttributes();
-        String content = attributes.get("fullName") + "离开了聊天室";
-        chatMessagePublisher.publish(attributes, Message.Type.SYSTEM, content);
+        String message = attributes.get("fullName") + "离开了聊天室";
+        chatMessagePublisher.publish(attributes, Message.Type.SYSTEM, message);
     }
 
 }

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 /**
- * 消息发布器
+ * 消息发布
  *
  * @author doufen
  * @date 2023/12/6
@@ -47,7 +47,7 @@ public class ChatMessagePublisher {
             String messageString = objectMapper.writeValueAsString(message);
             pulsarPublisher.sendAsync(messageString);
         } catch (JsonProcessingException e) {
-            log.error("Json process error", e);
+            log.error("Json处理失败", e);
         }
     }
 

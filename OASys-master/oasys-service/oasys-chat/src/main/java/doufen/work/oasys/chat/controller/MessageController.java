@@ -29,6 +29,14 @@ public class MessageController {
         this.messageService = messageService;
     }
 
+    /**
+     * 获取聊天框信息
+     * @param start
+     * @param end
+     * @param pageNumber
+     * @param pageSize
+     * @return
+     */
     @GetMapping
     public Result<Page<Message>> listMessages(@RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime start,
                                               @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") LocalDateTime end,
