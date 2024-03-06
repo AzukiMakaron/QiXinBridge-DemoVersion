@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 60.204.212.12:8848
   data:
     mongodb:
       host: 60.204.212.12
@@ -15,6 +15,6 @@ spring:
   jackson:
     default-property-inclusion: non_null
 pulsar:
-  host: localhost:6650
+  host: 60.204.217.157:6650
   topic: chat
   subscription: chat

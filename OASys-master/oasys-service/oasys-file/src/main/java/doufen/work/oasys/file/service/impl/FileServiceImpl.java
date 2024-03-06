@@ -117,13 +117,12 @@ public class FileServiceImpl implements FileService {
                 out.write(buffer, 0, len);
             }
         } catch (IOException e) {
-            log.error("Download file error", e);
+            log.error("下载文件失败", e);
         }
     }
 
     @Override
     public File update(File file) {
-        //todo 处理非共享文件夹下的共享文件
         file.setUpdateTime(LocalDateTime.now());
         fileDao.update(file);
         searchClient.saveFile(file);
@@ -134,7 +133,6 @@ public class FileServiceImpl implements FileService {
     public void deleteById(Long id) throws IOException, InvalidKeyException, InvalidResponseException, InsufficientDataException,
             NoSuchAlgorithmException, ServerException, InternalException, XmlParserException, ErrorResponseException {
         File file = fileDao.selectById(id);
-        //todo 处理删除非空文件夹
         if (file != null && !file.isFolder()) {
             minioClient.removeObject(RemoveObjectArgs.builder().bucket(bucketName).object(file.getPath()).build());
         }

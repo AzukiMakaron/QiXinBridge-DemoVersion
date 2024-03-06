@@ -5,6 +5,7 @@ import doufen.work.oasys.attendance.entity.Attendance;
 import doufen.work.oasys.attendance.service.AttendanceService;
 import doufen.work.oasys.common.entity.ResultStatus;
 import doufen.work.oasys.common.exception.BusinessException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -22,17 +23,28 @@ import java.util.List;
 @Service
 public class AttendanceServiceImpl implements AttendanceService {
 
-    private final AttendanceDao attendanceDao;
+    @Autowired
+    private AttendanceDao attendanceDao;
 
-    public AttendanceServiceImpl(AttendanceDao attendanceDao) {
-        this.attendanceDao = attendanceDao;
-    }
-
+    /**
+     * 列出用户签到日期和签退日期
+     * @param userId 用户ID
+     * @param year   年
+     * @param month  月
+     * @param day    日
+     * @return
+     */
     @Override
     public List<Attendance> listByUserIdAndClockDate(Long userId, Integer year, Integer month, Integer day) {
         return attendanceDao.listByUserIdAndClockDate(userId, year, month, day);
     }
 
+    /**
+     * 签到
+     * @param userId 用户ID
+     * @return
+     * @throws BusinessException
+     */
     @Override
     public Attendance create(Long userId) throws BusinessException {
         LocalDateTime nowDateTime = LocalDateTime.now();

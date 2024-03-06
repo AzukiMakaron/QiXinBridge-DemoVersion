@@ -5,6 +5,7 @@ import doufen.work.oasys.announcement.entity.Announcement;
 import doufen.work.oasys.announcement.service.AnnouncementService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -17,12 +18,12 @@ import java.time.LocalDateTime;
  */
 @Service
 public class AnnouncementServiceImpl implements AnnouncementService {
+    @Autowired
+    private AnnouncementDao announcementDao;
 
-    private final AnnouncementDao announcementDao;
-
-    public AnnouncementServiceImpl(AnnouncementDao announcementDao) {
-        this.announcementDao = announcementDao;
-    }
+//    public AnnouncementServiceImpl(AnnouncementDao announcementDao) {
+//        this.announcementDao = announcementDao;
+//    }
 
     @Override
     public PageInfo<Announcement> list(int pageNumber, int pageSize) {
