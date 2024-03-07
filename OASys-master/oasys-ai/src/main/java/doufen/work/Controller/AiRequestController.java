@@ -37,10 +37,11 @@ public class AiRequestController {
      * @return
      */
     @GetMapping("/sendQuestion")
-    public String sendQuestion(@RequestParam("question") String question){
+    public String sendQuestion(@RequestParam("id") Long id,@RequestParam("question") String question)throws InterruptedException{
         if(StrUtil.isBlank(question)){
             return "无效问题,请重新输入";
         }
+
         if(!xhAiStreamClient.operateToken(XhAiStreamClient.GET_TOKEN_STATUS)){
             return "当前AI使用人数过多,请您排队等候"+",目前使用人数:2人";
         }
