@@ -35,7 +35,7 @@ public class ResponseDTO {
     }
     @NoArgsConstructor
     @Data
-    private static class PayloadDTO{
+    public static class PayloadDTO{
         @JsonProperty("choices")
         private ChoicesDTO choices;
         @JsonProperty("usage")
