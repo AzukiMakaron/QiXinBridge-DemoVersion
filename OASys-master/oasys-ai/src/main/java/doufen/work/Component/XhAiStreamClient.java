@@ -28,13 +28,14 @@ import java.util.*;
 @Component
 @Slf4j
 public class XhAiStreamClient {
+
     @Resource
     private AIConfig aiConfig;
     //最大连接数
     @Value("${xhai.QPS}")
     private Integer connectionTokenCount;
-    private static int GET_TOKEN_STATUS=0;
-    private static int BACK_TOKEN_STATUS=1;
+    public static int GET_TOKEN_STATUS=0;
+    public static int BACK_TOKEN_STATUS=1;
 
     public synchronized boolean operateToken(int status){
         if(status==GET_TOKEN_STATUS){
