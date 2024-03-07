@@ -8,6 +8,7 @@
         <module>oasys-common</module>
         <module>oasys-gateway</module>
         <module>oasys-service</module>
+        <module>oasys-ai</module>
     </modules>
 
     <parent>

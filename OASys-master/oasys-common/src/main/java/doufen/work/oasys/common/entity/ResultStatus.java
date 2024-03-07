@@ -14,7 +14,7 @@ public enum ResultStatus {
     /**
      * 响应状态
      */
-    SUCCESS("0000", "操作成功"),
+        SUCCESS("0000", "操作成功"),
     UNAUTHORIZED("1000", "未授权"),
     FORBIDDEN("1001", "权限不足"),
     TOKEN_IS_INVALID("1002", "Token无效"),

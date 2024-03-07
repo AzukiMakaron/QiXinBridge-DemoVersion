@@ -1,0 +1,20 @@
+server:
+  port: 8812
+spring:
+  application:
+    name: ai-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 60.204.212.12:8848
+xhai:
+  hostUrl: https://spark-api.xf-yun.com/v3.5/chat
+  domain: generalv3.5
+  temperature: 0.5
+  maxTokens: 18192
+  maxResponseTime: 30
+  QPS: 2
+  appId: a25a8736
+  apiKey: ddd6e84e7f8ca2cff85fa61cedc37cfa
+  apiSecret: NmRjM2RjMDk4MDc5YTZlMzQxNjQ3Mzgx
+
