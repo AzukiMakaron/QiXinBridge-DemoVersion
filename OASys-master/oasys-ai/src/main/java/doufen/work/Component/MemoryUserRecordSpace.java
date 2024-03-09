@@ -7,6 +7,6 @@ import javax.annotation.Resource;
 public class MemoryUserRecordSpace {
     @Resource
     private AIConfig aiConfig;
-    //TO DO
+    //todo 根据上下文记忆用户的问题
 
 }

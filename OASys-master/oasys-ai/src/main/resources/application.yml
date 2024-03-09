@@ -11,7 +11,7 @@ xhai:
   hostUrl: https://spark-api.xf-yun.com/v3.5/chat
   domain: generalv3.5
   temperature: 0.5
-  maxTokens: 18192
+  maxTokens: 2048
   maxResponseTime: 30
   QPS: 2
   appId: a25a8736

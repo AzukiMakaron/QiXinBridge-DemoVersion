@@ -1,11 +1,12 @@
 package doufen.work.Controller;
-
+import doufen.work.oasys.common.entity.Result;
 import cn.hutool.core.lang.tree.Tree;
 import cn.hutool.core.util.StrUtil;
 import doufen.work.Component.XhAiStreamClient;
 import doufen.work.Config.AIConfig;
 import doufen.work.Dto.MsgDTO;
 import doufen.work.Listener.XhAiWebSocketListener;
+import doufen.work.oasys.common.entity.ResultStatus;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.WebSocket;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ import java.util.UUID;
  * @date 2024/3/7
  */
 @RestController
-@RequestMapping("/ai")
+@RequestMapping("ai")
 @Slf4j
 public class AiRequestController {
     @Resource
@@ -36,14 +37,14 @@ public class AiRequestController {
      * @param question
      * @return
      */
-    @GetMapping("/sendQuestion")
-    public String sendQuestion(@RequestParam("id") Long id,@RequestParam("question") String question)throws InterruptedException{
+    @GetMapping("sendQuestion")
+    public Result<String> sendQuestion(@RequestParam("question") String question)throws InterruptedException{
         if(StrUtil.isBlank(question)){
-            return "无效问题,请重新输入";
+            return Result.of(ResultStatus.QUESTIONS_ARE_NOT_AVAILABLE,"无效问题,请重新输入");
         }
 
         if(!xhAiStreamClient.operateToken(XhAiStreamClient.GET_TOKEN_STATUS)){
-            return "当前AI使用人数过多,请您排队等候"+",目前使用人数:2人";
+            return Result.of(ResultStatus.USER_ARE_TOO_MORE,"当前AI使用人数过多,请您排队等候"+",目前使用人数:2人");
         }
         MsgDTO msgDTO = MsgDTO.createUserMsg(question);
         XhAiWebSocketListener listener = new XhAiWebSocketListener();
@@ -51,7 +52,7 @@ public class AiRequestController {
         if(webSocket==null){
             //归还令牌
             xhAiStreamClient.operateToken(XhAiStreamClient.BACK_TOKEN_STATUS);
-            return"系统内部错误,请联系蚊朔tEam技术部的部长";
+            return Result.of(ResultStatus.AI_SYSTEM_INNO_PROBLEM,"系统内部错误,请联系蚊朔tEam技术部的部长");
         }
         try{
             int count=0;
@@ -64,17 +65,18 @@ public class AiRequestController {
                 count++;
             }
             if(count>maxCount){
-                return "AI响应超时，请联系蚊朔tEam技术部的部长";
+                return Result.of(ResultStatus.AI_ARE_NO_RESPONSE,"AI超时响应,请联系蚊朔tEam技术部的部长");
             }
+            return Result.of(ResultStatus.SUCCESS,listener.getAnswer().toString());
         }catch (InterruptedException  e){
             log.error("错误：" + e.getMessage());
-            return "系统内部错误，请联系蚊朔tEam技术部的部长";
+            return Result.of(ResultStatus.AI_SYSTEM_INNO_PROBLEM,"系统内部错误,请联系蚊朔tEam技术部的部长");
         }finally {
             //关闭
             webSocket.close(1000,"");
             //归还令牌
             xhAiStreamClient.operateToken(XhAiStreamClient.BACK_TOKEN_STATUS);
         }
-        return question;
+
     }
 }

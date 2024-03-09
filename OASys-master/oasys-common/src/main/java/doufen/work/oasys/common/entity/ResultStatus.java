@@ -24,7 +24,13 @@ public enum ResultStatus {
     TODAY_HAS_CLOCKED_IN("5000", "今日已经签到过"),
     TODAY_HAS_CLOCKED_OUT("5001", "今日已经签签退过"),
     TODAY_HAS_NOT_CLOCKED_IN("5002", "今日还没有签到"),
-    FILE_NOT_FOUND("6001", "文件不存在");
+    FILE_NOT_FOUND("6001", "文件不存在"),
+    USER_ARE_TOO_MORE("6002","当前AI使用人数过多,请您排队等候"+",目前使用人数:2人"),
+    QUESTIONS_ARE_NOT_AVAILABLE("6003","无效问题,请重新输入"),
+    AI_SYSTEM_INNO_PROBLEM("6004","系统内部错误,请联系蚊朔tEam技术部的部长"),
+    AI_ARE_NO_RESPONSE("6005","AI响应超时，请联系蚊朔tEam技术部的部长");
+
+
 
     /**
      * 状态码

@@ -35,20 +35,20 @@ public class XhAiWebSocketListener extends WebSocketListener {
     public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
         super.onMessage(webSocket, text);
         //将大模型回复的数据转换为object对象形式
-        ResponseDTO responseDTO= JSONObject.parseObject(text, ResponseDTO.class);
-        if(responseDTO.getHeader().getCode()!=0){
+        ResponseDTO responseData= JSONObject.parseObject(text, ResponseDTO.class);
+        if(responseData.getHeader().getCode()!=0){
             //如果状态码不为0则是错误的
-            log.error("发生错误，错误码为：" + responseDTO.getHeader().getCode() + "; " + "信息：" + responseDTO.getHeader().getMessage());
+            log.error("发生错误，错误码为：" + responseData.getHeader().getCode() + "; " + "信息：" + responseData.getHeader().getMessage());
             //设置回答
             this.answer=new StringBuilder("小豆当前响应错误哦，请稍后再试");
             wsCloseFlag=true;//关闭
             return;
         }
-        for (MsgDTO msgDTO : responseDTO.getPayload().getChoices().getText()) {
+        for (MsgDTO msgDTO : responseData.getPayload().getChoices().getText()) {
             this.answer.append(msgDTO.getContent());
         }
         //会话状态，取值为[0,1,2]；0代表首次结果；1代表中间结果；2代表最后一个结果
-        if(2==responseDTO.getHeader().getStatus()){
+        if(2==responseData.getHeader().getStatus()){
             wsCloseFlag=true;
         }
 
